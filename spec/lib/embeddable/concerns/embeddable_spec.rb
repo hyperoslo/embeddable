@@ -20,6 +20,15 @@ module Embeddable
       end
     end
 
+    describe 'Vimeo' do
+      context 'with http://vimeo.com/...' do
+        before { subject.video_url = 'https://vimeo.com/77949044' }
+
+        its(:video_type) { should eq :vimeo }
+        its(:video_id)   { should eq '77949044' }
+      end
+    end
+
     describe 'YouTube' do
 
       context 'with http://youtube.com/watch?v=...' do

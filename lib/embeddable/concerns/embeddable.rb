@@ -8,6 +8,9 @@ module Embeddable::Concerns
       youtube: [
         %r{^https?://(?:(?:www|m)\.)?youtube\.com/watch\?v=([^&]+)},
         %r{^https?://(?:(?:www|m)\.)?youtu\.be/([^?]+)}
+      ],
+      vimeo: [
+        %r{^https?://(?:www\.)?vimeo\.com/([^\?]+)},
       ]
     }
 

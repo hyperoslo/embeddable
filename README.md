@@ -21,7 +21,7 @@ Or install it yourself as:
 
 ## Usage
 
-```
+```ruby
 # app/models/post.rb
 class Post
   embeddable :video, from: :video_url

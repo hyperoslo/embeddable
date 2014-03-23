@@ -23,7 +23,7 @@ Or install it yourself as:
 
 ```ruby
 # app/models/post.rb
-class Post
+class Post < ActiveRecord::Base
   embeddable :video, from: :video_url
 end
 

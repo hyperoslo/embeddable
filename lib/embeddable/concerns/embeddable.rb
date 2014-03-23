@@ -12,18 +12,6 @@ module Embeddable::Concerns
     }
 
     module ClassMethods
-      # Denotes an embeddable for given name
-      #
-      # Options:
-      #   :from (source property for this embeddable, required)
-      #
-      # Example:
-      #
-      #   class Post
-      #     include Concerns::Embeddable
-      #     embeddable :video, from: :video_url
-      #   end
-      #
       def embeddable(name, options = {})
         source = options.fetch :from
 

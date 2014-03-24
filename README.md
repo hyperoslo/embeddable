@@ -24,6 +24,8 @@ Or install it yourself as:
 ```ruby
 # app/models/post.rb
 class Post < ActiveRecord::Base
+  include Embeddable
+
   embeddable :video, from: :video_url
 end
 

@@ -1,7 +1,7 @@
 # Embeddable
 
-[![Code Climate](https://codeclimate.com/github/hyperoslo/embeddable.png)](https://codeclimate.com/github/hyperoslo/embeddable)
-[![Build Status](https://travis-ci.org/hyperoslo/embeddable.png)](https://travis-ci.org/hyperoslo/embeddable)
+[![Code Climate](https://img.shields.io/codeclimate/github/hyperoslo/embeddable.svg)](https://codeclimate.com/github/hyperoslo/embeddable)
+[![Build Status](https://img.shields.io/travis/hyperoslo/embeddable.svg)](https://travis-ci.org/hyperoslo/embeddable)
 
 Embeddable makes it easier to embed videos.
 

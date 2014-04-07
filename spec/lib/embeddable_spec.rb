@@ -19,6 +19,57 @@ describe Embeddable do
     end
   end
 
+  describe 'Liveleak' do
+    context 'with http://liveleak.com/...' do
+      before { 
+        subject.video_url = 'http://www.liveleak.com/view?i=290_1392029603' 
+      }
+
+      its(:video_type) { should eq :liveleak }
+      its(:video_id)   { should eq '290_1392029603' }
+    end
+  end
+
+  describe 'Dailymotion' do
+    context 'with http://dailymotion.com/video/<id>...' do
+      before { 
+        subject.video_url = 'http://www.dailymotion.com/video/xu4q8m' 
+      }
+
+      its(:video_type) { should eq :dailymotion }
+      its(:video_id)   { should eq 'xu4q8m' }
+    end
+
+    context 'with http://dailymotion.com/video/<id>_<blargablarga>...' do
+      before { 
+        subject.video_url = 'http://www.dailymotion.com/video/xu4q8m_apprendre-le-deltaplane-a-millau-hang-gliding-in-france-creative-motion_sport' 
+      }
+
+      its(:video_type) { should eq :dailymotion }
+      its(:video_id)   { should eq 'xu4q8m_apprendre-le-deltaplane-a-millau-hang-gliding-in-france-creative-motion_sport' }
+    end
+  end
+
+  describe 'Veoh' do
+    context 'with http://veoh.com/watch/<id>...' do
+      before { 
+        subject.video_url = 'http://www.veoh.com/watch/v36298453QmtnSAza' 
+      }
+
+      its(:video_type) { should eq :veoh }
+      its(:video_id)   { should eq 'v36298453QmtnSAza' }
+    end
+
+    context 'with http://veoh.com/watch/<id>/<blargablarga>...' do
+      before { 
+        subject.video_url = 'http://www.veoh.com/watch/v36298453QmtnSAza/CBS-SciTech-News' 
+      }
+
+      its(:video_type) { should eq :veoh }
+      its(:video_id)   { should eq 'v36298453QmtnSAza/CBS-SciTech-News' }
+    end
+  end
+
   describe 'Vimeo' do
     context 'with http://vimeo.com/...' do
       before { subject.video_url = 'https://vimeo.com/77949044' }

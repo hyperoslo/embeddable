@@ -11,6 +11,15 @@ module Embeddable
     ],
     vimeo: [
       %r{^https?://(?:www\.)?vimeo\.com/([^\?]+)},
+    ],
+    dailymotion: [
+      %r{^https?://(?:www\.)?dailymotion\.com/video/([^\?]+)},
+    ],
+    veoh: [
+      %r{^https?://(?:www\.)?veoh\.com/watch/([^\?]+)},
+    ],
+    liveleak: [
+      %r{^https?://(?:www\.)?liveleak\.com/view\?i=([^\?]+)},
     ]
   }
 

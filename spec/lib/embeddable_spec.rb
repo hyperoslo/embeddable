@@ -19,7 +19,6 @@ describe Embeddable do
     end
   end
 
-  # LiveLeak
   describe 'Liveleak' do
     context 'with http://liveleak.com/...' do
       before { 
@@ -31,7 +30,6 @@ describe Embeddable do
     end
   end
 
-  # Dailymotion
   describe 'Dailymotion' do
     context 'with http://dailymotion.com/video/<id>...' do
       before { 
@@ -52,7 +50,6 @@ describe Embeddable do
     end
   end
 
-  # Veoh
   describe 'Veoh' do
     context 'with http://veoh.com/watch/<id>...' do
       before { 
@@ -73,7 +70,6 @@ describe Embeddable do
     end
   end
 
-  # Vimeo
   describe 'Vimeo' do
     context 'with http://vimeo.com/...' do
       before { subject.video_url = 'https://vimeo.com/77949044' }
@@ -83,7 +79,6 @@ describe Embeddable do
     end
   end
 
-  # YouTube
   describe 'YouTube' do
 
     context 'with http://youtube.com/watch?v=...' do

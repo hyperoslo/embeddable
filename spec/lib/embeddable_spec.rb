@@ -79,6 +79,40 @@ describe Embeddable do
     end
   end
 
+  describe 'Vippy' do
+    context 'with http://liveleak.com/...' do
+      before { 
+        subject.video_url = <<SUCH_EMBED_CODE
+<!-- Start Vippy video -->
+<div itemscope itemtype="http://schema.org/VideoObject" class="vippy-video" style="width: 640px; height: 360px; position: relative;">
+	<meta itemprop="name" content="bademiljo_hurum_v1.mp4" />
+	<meta itemprop="duration" content="PT9M38S" />
+	<meta itemprop="thumbnailURL" content="https://vippy.co/play/image/pretty-cool-video" />
+	<meta itemprop="contentURL" content="http://cdn2.vippy.co/10455/video/out/nice-stuff.mp4" />
+	<meta itemprop="embedUrl" content="https://vippy.co/play/flash/watch/pretty-cool-video" />
+	<meta itemprop="uploadDate" content="2014-04-30" />
+	<meta itemprop="width" content="640" />
+	<meta itemprop="height" content="360" />
+	<object class="vippy-video-object" type="application/x-shockwave-flash" data="https://vippy.co/play/flash/watch/pretty-cool-video" id="some-id" width="640" height="360">
+		<param name="player" value="https://vippy.co/play/flash/watch/pretty-cool-video" />
+		<param name="allowScriptAccess" value="always" />
+		<param name="allowFullScreen" value="true" />
+		<param name="wmode" value="direct" />
+		<param name="movie" value="https://vippy.co/play/flash/watch/pretty-cool-video" />
+		<video style="position: absolute; top: 0px; left: 0px;" class="vippy-video-object" width="640" height="360" preload="none" controls="controls" poster="https://vippy.co/play/image/pretty-cool-video">
+			<source src="https://vippy.co/play/mobile/watch/pretty-cool-video" />
+		</video>
+	</object>
+</div>
+<!-- End Vippy video -->
+SUCH_EMBED_CODE
+      }
+
+      its(:video_type) { should eq :vippy }
+      its(:video_id)   { should eq 'pretty-cool-video' }
+    end
+  end
+
   describe 'YouTube' do
 
     context 'with http://youtube.com/watch?v=...' do

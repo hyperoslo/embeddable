@@ -18,6 +18,9 @@ module Embeddable
     veoh: [
       %r{^https?://(?:www\.)?veoh\.com/watch/([^\?]+)},
     ],
+    vippy: [
+      %r{https:\/\/vippy.co\/play\/.+\/([^\?\s]+)"}
+    ],
     liveleak: [
       %r{^https?://(?:www\.)?liveleak\.com/view\?i=([^\?]+)},
     ]

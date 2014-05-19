@@ -25,7 +25,7 @@ module ViewHelpers
       }.html_safe
     elsif embeddable.video_on_vippy?
       %Q{
-        <div itemscope itemtype='http://schema.org/VideoObject' class='vippy-video' style='width: #{width}; height: #{height}; position: relative;'>
+        <div itemscope itemtype='http://schema.org/VideoObject' class='vippy-video' style='width: #{width}; height: #{height};'>
           <meta itemprop='thumbnailURL' content='https://vippy.co/play/image/#{embeddable.video_id}' />
           <meta itemprop='embedUrl' content='https://vippy.co/play/flash/watch/#{embeddable.video_id}' />
           <meta itemprop='width' content='#{width}' />

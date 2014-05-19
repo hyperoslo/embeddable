@@ -1,5 +1,5 @@
 module ViewHelpers
-  def embed(embeddable, width, height)
+  def embed_video(embeddable, width, height)
     if embeddable.video_on_youtube?
       content_tag :iframe, nil, width: width, height: height,
         src: "//www.youtube.com/embed/#{embeddable.video_id}",

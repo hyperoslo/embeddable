@@ -1,7 +1,14 @@
 require 'active_support/all'
 require 'embeddable/version'
+require 'embeddable/railtie' if defined?(Rails)
 
 module Embeddable
+  class Railtie < Rails::Railtie
+    initializer "Embeddable.view_helpers" do
+      ActionView::Base.send :include, ViewHelpers
+    end
+  end
+
   extend ActiveSupport::Concern
 
   SERVICES = {
@@ -19,7 +26,8 @@ module Embeddable
       %r{^https?://(?:www\.)?veoh\.com/watch/([^\?]+)},
     ],
     vippy: [
-      %r{https:\/\/vippy.co\/play\/.+\/([^\?\s]+)"}
+      %r{https:\/\/vippy.co\/play\/.+\/([^\?\s]+)"},
+      %r{https:\/\/vippy.co\/play\/flash\/watch\/([^\?]+)}
     ],
     liveleak: [
       %r{^https?://(?:www\.)?liveleak\.com/view\?i=([^\?]+)},

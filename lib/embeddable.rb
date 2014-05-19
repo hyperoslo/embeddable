@@ -3,12 +3,6 @@ require 'embeddable/version'
 require 'embeddable/railtie' if defined?(Rails)
 
 module Embeddable
-  class Railtie < Rails::Railtie
-    initializer "Embeddable.view_helpers" do
-      ActionView::Base.send :include, ViewHelpers
-    end
-  end
-
   extend ActiveSupport::Concern
 
   SERVICES = {

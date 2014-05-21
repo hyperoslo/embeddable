@@ -1,0 +1,16 @@
+<div itemscope itemtype="http://schema.org/VideoObject" class="vippy-video" style="width: <%= width %>; height: <%= height %>;">
+  <meta itemprop="thumbnailURL" content="https://vippy.co/play/image/<%= id %>" />
+  <meta itemprop="embedUrl" content="https://vippy.co/play/flash/watch/<%= id %>" />
+  <meta itemprop="width" content="<%= width %>" />
+  <meta itemprop="height" content="<%= height %>" />
+  <object class="vippy-video-object" type="application/x-shockwave-flash" data="https://vippy.co/play/flash/watch/<%= id %>" width="<%= width %>" height="<%= height %>">
+    <param name="player" value="https://vippy.co/play/flash/watch/<%= id %>" />
+    <param name="allowScriptAccess" value="always" />
+    <param name="allowFullScreen" value="true" />
+    <param name="wmode" value="direct" />
+    <param name="movie" value="https://vippy.co/play/flash/watch/<%= id %>" />
+    <video style="position: absolute; top: 0px; left: 0px;" class="vippy-video-object" width="<%= width %>" height="<%= height %>" preload="none" controls="controls" poster="https://vippy.co/play/image/<%= id %>">
+      <source src="https://vippy.co/play/mobile/watch/<%= id %>" />
+    </video>
+  </object>
+</div>

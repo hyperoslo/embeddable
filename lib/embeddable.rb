@@ -1,5 +1,6 @@
 require 'active_support/all'
 require 'embeddable/version'
+require 'embeddable/railtie' if defined?(Rails)
 
 module Embeddable
   extend ActiveSupport::Concern
@@ -19,7 +20,8 @@ module Embeddable
       %r{^https?://(?:www\.)?veoh\.com/watch/([^\?]+)},
     ],
     vippy: [
-      %r{https:\/\/vippy.co\/play\/.+\/([^\?\s]+)"}
+      %r{https:\/\/vippy.co\/play\/.+\/([^\?\s]+)"},
+      %r{https:\/\/vippy.co\/play\/flash\/watch\/([^\?]+)}
     ],
     liveleak: [
       %r{^https?://(?:www\.)?liveleak\.com/view\?i=([^\?]+)},

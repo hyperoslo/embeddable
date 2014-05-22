@@ -45,7 +45,7 @@ your own brightcove player by overriding the brightcove partial.
 
 1. Create a partial in your project here: `app/views/embeddable/partials/_brightcove.html.erb`
 2. Add your brightcove player code(see example below)
-3. Remember to add the following parameters(included in the example below): id, width, height
+3. Remember to add the following parameters(included in the example below): `id`, `width`, `height`
 
 ```html
 <div class="BCLcontainingBlock">

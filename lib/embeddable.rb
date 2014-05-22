@@ -25,6 +25,9 @@ module Embeddable
     ],
     liveleak: [
       %r{^https?://(?:www\.)?liveleak\.com/view\?i=([^\?]+)},
+    ],
+    brightcove: [
+      %r{^(\d+)$}
     ]
   }
 

@@ -15,6 +15,8 @@ module ViewHelpers
     elsif embeddable.video_on_liveleak?
       # not supported
       link_to embeddable.url, embeddable.url
+    elsif embeddable.video_on_brightcove?
+      render 'embeddable/partials/brightcove', attributes
     else
       link_to embeddable.url, embeddable.url
     end

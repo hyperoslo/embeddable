@@ -181,6 +181,14 @@ SUCH_EMBED_CODE
 
   end
 
+  describe '.embeddable_name' do
+    its(:embeddable_name) { should eql(:video) }
+  end
+
+  describe '.embeddable_from' do
+    its(:embeddable_from) { should eql(:video_url) }
+  end
+
   describe 'unsupported scenarios' do
 
     context 'unknown service' do

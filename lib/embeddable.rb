@@ -60,6 +60,14 @@ module Embeddable
         end
 
       end
+
+      define_method "embeddable_name" do
+        name
+      end
+
+      define_method "embeddable_from" do
+        source
+      end
     end
   end
 end

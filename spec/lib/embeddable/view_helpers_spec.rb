@@ -4,15 +4,6 @@ require 'embeddable/view_helpers'
 describe Embeddable::ViewHelpers do
   subject { Dummy.new }
 
-  class Dummy
-    include Embeddable
-
-    embeddable :video, from: :video_url
-    embeddable :super_video, from: :another_url
-
-    attr_accessor :video_url, :another_url
-  end
-
   class HelperDummy
     include Embeddable::ViewHelpers
 

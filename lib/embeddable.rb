@@ -31,7 +31,13 @@ module Embeddable
     ]
   }
 
+  included do
+    @embeddables = []
+  end
+
   module ClassMethods
+    attr_reader :embeddables
+
     def embeddable(name, options = {})
       source = options.fetch :from
 
@@ -61,13 +67,11 @@ module Embeddable
 
       end
 
-      define_method "embeddable_name" do
-        name
-      end
-
-      define_method "embeddable_from" do
+      define_method "#{name}_source" do
         source
       end
+
+      @embeddables << name
     end
   end
 end

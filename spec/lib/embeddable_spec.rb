@@ -7,8 +7,9 @@ describe Embeddable do
     include Embeddable
 
     embeddable :video, from: :video_url
+    embeddable :super_video, from: :another_url
 
-    attr_accessor :video_url
+    attr_accessor :video_url, :another_url
   end
 
   describe '.embeddable' do
@@ -181,12 +182,22 @@ SUCH_EMBED_CODE
 
   end
 
-  describe '.embeddable_name' do
-    its(:embeddable_name) { should eql(:video) }
+  describe '.video_source' do
+    it 'should return the source of video' do
+      expect(subject.video_source).to eql(:video_url)
+    end
   end
 
-  describe '.embeddable_from' do
-    its(:embeddable_from) { should eql(:video_url) }
+  describe '.super_video_source' do
+    it 'should return the source of super_video' do
+      expect(subject.super_video_source).to eql(:another_url)
+    end
+  end
+
+  context 'multiple embeddable columns' do
+    it 'should store an array of names on the class' do
+      expect(Dummy.embeddables).to eql([:video, :super_video])
+    end
   end
 
   describe 'unsupported scenarios' do

@@ -39,7 +39,38 @@ post.video_on_youtube? # => true
 post.video_id          # => 'bEvNRmPzq9s'
 ```
 
-### Brightcove
+### Views
+You can use a simple view helper to render the respective video players. `embed_video(embeddable, width, height)`
+
+```erb
+<div class="video-wrapper">
+  <%= embed_video(embeddable, '100%', '100%') %>
+</div>
+```
+
+#### Multiple embeddables in one model
+If you have multiple columns using embeddable in one model, you will need to specify which one you want to embed unless it's the first one specified in the model. Add an extra parameter to the view helper: `embed_video(embeddable, width, height, name: :your_embeddable_name)`.
+
+If you have this in your model:
+```ruby
+embeddable :video, from: :video_url
+embeddable :another_video, from: :another_url
+```
+
+And you want to embed `:another_video` - you will use the helper like this:
+```erb
+<%= embed_video(embeddable, '100%', '100%', name: :another_video) %>
+```
+
+#### Overriding
+The view helper uses partials to render the embed snippets for all of the video players. You can override them by creating a partial here: `app/views/embeddable/`. The file should be named after the player. See example below.
+
+```erb
+<!-- app/views/embeddable/partials/_youtube.html.erb -->
+<iframe width="<%= width %>" height="<%= height %>" src="//www.youtube.com/embed/<%= id %>" frameborder="0" allowfullscreen webkitallowfullscreen mozillowfullscreen></iframe>
+```
+
+#### Brightcove
 If you want to support brightcove, you'll need to add
 your own brightcove player by overriding the brightcove partial.
 
@@ -78,37 +109,6 @@ your own brightcove player by overriding the brightcove partial.
 ```
 
 If you used this example, you must remember to add your own `playerId` and `playerKey`
-
-### Views
-You can use a simple view helper to render the respective video players. `embed_video(embeddable, width, height)`
-
-```erb
-<div class="video-wrapper">
-  <%= embed_video(embeddable, '100%', '100%') %>
-</div>
-```
-
-#### Multiple embeddables in one model
-If you have multiple columns using embeddable in one model, you will need to specify which one you want to embed unless it's the first one specified in the model. Add an extra parameter to the view helper: `embed_video(embeddable, width, height, name: :your_embeddable_name)`.
-
-If you have this in your model:
-```ruby
-embeddable :video, from: :video_url
-embeddable :another_video, from: :another_url
-```
-
-And you want to embed `:another_video` - you will use the helper like this:
-```erb
-<%= embed_video(embeddable, '100%', '100%', name: :another_video) %>
-```
-
-#### Overriding
-The view helper uses partials to render the embed snippets for all of the video players. You can override them by creating a partial here: `app/views/embeddable/`. The file should be named after the player. See example below.
-
-```erb
-<!-- app/views/embeddable/partials/_youtube.html.erb -->
-<iframe width="<%= width %>" height="<%= height %>" src="//www.youtube.com/embed/<%= id %>" frameborder="0" allowfullscreen webkitallowfullscreen mozillowfullscreen></iframe>
-```
 
 ## Contributing
 

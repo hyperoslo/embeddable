@@ -19,6 +19,22 @@ describe Embeddable do
     end
   end
 
+  describe 'predicate' do
+    context ':video_url is a supported url' do
+      it 'should be true' do
+        subject.video_url = 'http://youtube.com/watch?v=1&feature=foo'
+        expect(subject.video?).to be_truthy
+      end
+    end
+
+    context ':video_url is an unsupported url' do
+      it 'should be false' do
+        subject.video_url = 'http://foo.bar'
+        expect(subject.video?).to be_falsey
+      end
+    end
+  end
+
   describe 'Liveleak' do
     context 'with http://liveleak.com/...' do
       before { 

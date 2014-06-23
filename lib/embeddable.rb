@@ -53,6 +53,10 @@ module Embeddable
         end.flatten.compact.first
       end
 
+      define_method "#{name}?" do
+        send("#{name}_id") ? true : false
+      end
+
       SERVICES.each do |service, pattern|
 
         define_method "#{name}_on_#{service}?" do

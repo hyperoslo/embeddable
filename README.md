@@ -97,7 +97,7 @@ embeddable :video, from: :video_url
 embeddable :another_video, from: :another_url
 ```
 
-And you want to embed :another_video - you will use the helper like this:
+And you want to embed `:another_video` - you will use the helper like this:
 ```erb
 <%= embed_video(embeddable, '100%', '100%', name: :another_video) %>
 ```

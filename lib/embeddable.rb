@@ -47,7 +47,7 @@ module Embeddable
 
         SERVICES.find do |service, patterns|
           patterns.any? { |pattern| url[pattern] }
-        end.first rescue nil
+        end.try(:first)
       end
 
       define_method "#{name}_id" do

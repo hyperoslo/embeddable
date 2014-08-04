@@ -45,9 +45,9 @@ module Embeddable
         url = send(source)
         return if url.blank?
 
-        SERVICES.map do |service, patterns|
-          service if patterns.any? { |pattern| url[pattern] }
-        end.compact.first
+        SERVICES.find do |service, patterns|
+          patterns.any? { |pattern| url[pattern] }
+        end.try(:first)
       end
 
       define_method "#{name}_id" do

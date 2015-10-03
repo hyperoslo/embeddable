@@ -1,4 +1,5 @@
-require 'active_support/all'
+require 'active_support/concern'
+require 'active_support/core_ext/object/blank'
 require 'embeddable/version'
 require 'embeddable/railtie' if defined?(Rails)
 
@@ -45,9 +46,11 @@ module Embeddable
         url = send(source)
         return if url.blank?
 
-        SERVICES.find do |service, patterns|
+        service = SERVICES.find do |service, patterns|
           patterns.any? { |pattern| url[pattern] }
-        end.try(:first)
+        end
+
+        service && service.first
       end
 
       define_method "#{name}_id" do

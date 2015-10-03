@@ -63,7 +63,7 @@ module Embeddable
       end
 
       define_method "#{name}?" do
-        send("#{name}_id") ? true : false
+        !!send("#{name}_id")
       end
 
       SERVICES.each do |service, pattern|

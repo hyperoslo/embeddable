@@ -69,10 +69,10 @@ module Embeddable
       rescue URI::InvalidURIError
         # If the source is not a URL, try to match against some
         # special case services
-        vippy = Vippy.new source
-        return vippy if vippy.id
-        brightcove = Brightcove.new source
-        return brightcove if brightcove.id
+        [Vippy, Brightcove].each do |service|
+          instance = service.new source
+          return instance if instance.id
+        end
       end
     end
   end

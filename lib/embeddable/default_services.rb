@@ -60,7 +60,7 @@ module Embeddable
     end
 
     def id
-      (REGEXP1.match(@source) or REGEXP2.match(@source)).try(:captures).try(:first)
+      (REGEXP1.match(@source) || REGEXP2.match(@source)).try(:captures).try(:first)
     end
   end
 

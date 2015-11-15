@@ -1,7 +1,11 @@
-require 'embeddable'
-require 'rspec/its'
+ENV['RAILS_ENV'] ||= 'test'
 
-class Dummy
+require 'rspec/its'
+require 'dummy/config/environment'
+require 'rspec/rails'
+require 'embeddable'
+
+class DummyModel
   include Embeddable
 
   embeddable :video, from: :video_url

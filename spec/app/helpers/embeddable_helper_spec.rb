@@ -1,19 +1,8 @@
 require 'spec_helper'
-require 'embeddable/view_helpers'
 
-describe Embeddable::ViewHelpers do
-  subject { Dummy.new }
-  before { subject.video_url = 'http://www.youtube.com/?v=123' }
-
-  class HelperDummy
-    include Embeddable::ViewHelpers
-
-    def render(*args)
-      true
-    end
-  end
-
-  let(:helper) { HelperDummy.new }
+describe EmbeddableHelper, type: :helper do
+  subject { DummyModel.new }
+  before  { subject.video_url = 'http://www.youtube.com/?v=123' }
 
   describe 'embed_video' do
     context 'specifying embeddable name' do

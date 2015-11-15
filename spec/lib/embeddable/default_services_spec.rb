@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'default services' do
-  subject { Dummy.new }
+  subject { DummyModel.new }
 
   describe 'Liveleak' do
     context 'with http://liveleak.com/...' do

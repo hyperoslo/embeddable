@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe Embeddable do
-  subject { Dummy.new }
+  subject { DummyModel.new }
 
   describe '.embeddable' do
     it 'requires a source property' do
       expect do
-        Dummy.embeddable :video
+        DummyModel.embeddable :video
       end.to raise_error KeyError
     end
   end
@@ -48,7 +48,7 @@ describe Embeddable do
 
   context 'multiple embeddable columns' do
     it 'should store an array of names on the class' do
-      expect(Dummy.embeddables).to eql([:video, :super_video])
+      expect(DummyModel.embeddables).to eql([:video, :super_video])
     end
   end
 

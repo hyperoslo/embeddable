@@ -3,7 +3,7 @@ require 'active_support/core_ext/object/blank'
 require 'active_support/core_ext/object/try'
 require 'active_support/inflector'
 require 'embeddable/version'
-require 'embeddable/railtie' if defined?(Rails)
+require 'embeddable/engine' if defined?(Rails)
 require 'embeddable/default_services'
 
 module Embeddable
